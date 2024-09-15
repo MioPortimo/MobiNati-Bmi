@@ -1,7 +1,6 @@
 package com.example.bmi
 
 import android.os.Bundle
-import android.view.Surface
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -15,6 +14,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -67,7 +67,7 @@ fun Bmi(){
         )
         OutlinedTextField(
             value = heightInput,
-            onValueChange = {heightInput = it.replace(',',',')},
+            onValueChange = {heightInput = it.replace(',','.')},
             label = { Text("Height") },
             singleLine = true,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
@@ -75,13 +75,13 @@ fun Bmi(){
         )
         OutlinedTextField(
             value = weightInput,
-            onValueChange = {weightInput = it.replace(',',',')},
+            onValueChange = {weightInput = it.replace(',','.')},
             label = { Text("Weight") },
             singleLine = true,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             modifier = Modifier.fillMaxWidth()
         )
-        Text(text = stringResource(R.string.result,String.format("%.2f",bmi).replace(',',',')))
+        Text(text = stringResource(R.string.result,String.format("%.2f",bmi).replace(',','.')))
     }
 }
 @Preview(showBackground = true)
